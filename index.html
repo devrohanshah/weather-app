@@ -2,38 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather App - JavaScript</title>
-    <link rel="stylesheet" href="./font/Rimouski.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-
-    <p class="app">Weather App</p>
+    <div class="bg-animation">
+        <div class="weather-gradient"></div>
+    </div>
     
-    <div class="container">
-        <div class="app-title">
-            <p>Weather</p>
+    <div class="header">
+        <h1 class="title">Weather Forecast</h1>
+        <p class="subtitle">Check the weather anywhere in the world</p>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search for a city..." id="search-input">
+        <button class="search-btn" id="search-btn">
+            <i class="fas fa-search" style="color: #2a5298;"></i>
+        </button>
+        <div class="suggestions-container" id="suggestions-container"></div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+    
+    <div class="weather-card" id="weather-card">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
         </div>
-        <div class="notification"> </div>
-        <div class="weather-container">
-            <div class="weather-icon">
-                <img src="./icon/unknown.png" alt="">
+        
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <h2 id="location">--</h2>
+        </div>
+        
+        <div class="weather-info">
+            <div class="weather-icon" id="weather-icon">
+                <img src="icon/unknown.png" alt="Weather icon">
             </div>
-            <div class="temperature-value">
-                <p>- °<span>C</span></p>
+            
+            <div class="weather-details">
+                <div class="temperature" id="temperature">--<span>°C</span></div>
+                <div class="weather-description" id="description">--</div>
+                <div class="date-time" id="date-time">--</div>
             </div>
-            <div class="temperature-description">
-                <p> - </p>
+        </div>
+        
+        <div class="additional-info">
+            <div class="info-item">
+                <i class="fas fa-wind"></i>
+                <div class="info-title">Wind</div>
+                <div class="info-value" id="wind">-- m/s</div>
             </div>
-            <div class="location">
-                <p>-</p>
+            
+            <div class="info-item">
+                <i class="fas fa-tint"></i>
+                <div class="info-title">Humidity</div>
+                <div class="info-value" id="humidity">--%</div>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <div class="info-title">Pressure</div>
+                <div class="info-value" id="pressure">-- hPa</div>
+            </div>
+        </div>
+        
+        <div class="forecast-section">
+            <h3 class="forecast-title">Today's Forecast</h3>
+            <div class="hourly-forecast" id="hourly-forecast">
+                <!-- Forecast items will be added here -->
             </div>
         </div>
     </div>
-
-    <p class="app">Made By<a class="link" href="https://www.rohanshah.com.np/">Rohan Shah</a></p>
+    
+    <div class="footer">
+        <p>Made with ❤️ by <a href="https://www.rohanshah.com.np/" target="_blank">Rohan Shah</a></p>
+    </div>
     
     <script src="./js/app.js"></script>
 </body>
 </html>
-
